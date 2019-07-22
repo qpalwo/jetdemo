@@ -55,10 +55,16 @@ dependencies {
     // paging
     implementation "androidx.paging:paging-common:${rootProject.dependenciesVersion.paging}"
     implementation "androidx.paging:paging-runtime:${rootProject.dependenciesVersion.paging}"
+    implementation "androidx.paging:paging-runtime-ktx:${rootProject.dependenciesVersion.paging}"
     // room
     implementation "androidx.room:room-runtime:${rootProject.dependenciesVersion.room}"
     kapt "androidx.room:room-compiler:${rootProject.dependenciesVersion.room}"
     implementation "androidx.room:room-rxjava2:${rootProject.dependenciesVersion.room}"
+    // lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime:${rootProject.dependenciesVersion.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${rootProject.dependenciesVersion.lifecycle}"
+    kapt "androidx.lifecycle:lifecycle-compiler:${rootProject.dependenciesVersion.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${rootProject.dependenciesVersion.lifecycle}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

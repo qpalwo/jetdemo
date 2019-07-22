@@ -6,6 +6,6 @@ package me.xyxaini.jetdemo.model
  */
 object Config {
 
-    const val FUN_BASE = "http://www.mxnzp.com/api/"
+    const val FUN_BASE = "https://www.mxnzp.com/api/"
     const val METHOD_GET_FUN = "jokes/list"
 }

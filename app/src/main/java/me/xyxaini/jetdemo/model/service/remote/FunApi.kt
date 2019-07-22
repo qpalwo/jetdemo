@@ -1,6 +1,5 @@
 package me.xyxaini.jetdemo.model.service.remote
 
-import com.squareup.moshi.Moshi
 import io.reactivex.Single
 import me.xyxaini.jetdemo.model.Config
 import okhttp3.OkHttpClient

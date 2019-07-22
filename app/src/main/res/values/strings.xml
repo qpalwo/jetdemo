@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">jetdemo</string>
+    <string name="confirm">ok</string>
 </resources>

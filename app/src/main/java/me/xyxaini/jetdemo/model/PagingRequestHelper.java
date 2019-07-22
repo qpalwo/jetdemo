@@ -44,12 +44,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *     Executor executor = Executors.newSingleThreadExecutor();
  *     PagingRequestHelper helper = new PagingRequestHelper(executor);
  *     // imaginary API service, using Retrofit
- *     MyApi api;
+ *     MyApi funApi;
  *
  *     {@literal @}Override
  *     public void onItemAtFrontLoaded({@literal @}NonNull MyItem itemAtFront) {
  *         helper.runIfNotRunning(PagingRequestHelper.RequestType.BEFORE,
- *                 helperCallback -> api.getTopBefore(itemAtFront.getName(), 10).enqueue(
+ *                 helperCallback -> funApi.getTopBefore(itemAtFront.getName(), 10).enqueue(
  *                         new Callback&lt;ApiResponse>() {
  *                             {@literal @}Override
  *                             public void onResponse(Call&lt;ApiResponse> call,
@@ -68,7 +68,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *     {@literal @}Override
  *     public void onItemAtEndLoaded({@literal @}NonNull MyItem itemAtEnd) {
  *         helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER,
- *                 helperCallback -> api.getTopBefore(itemAtEnd.getName(), 10).enqueue(
+ *                 helperCallback -> funApi.getTopBefore(itemAtEnd.getName(), 10).enqueue(
  *                         new Callback&lt;ApiResponse>() {
  *                             {@literal @}Override
  *                             public void onResponse(Call&lt;ApiResponse> call,

@@ -1,7 +1,5 @@
 package me.xyxaini.jetdemo.activity
 
-import android.os.Bundle
-import android.os.PersistableBundle
 import me.xyxaini.jetdemo.R
 import me.xyxaini.jetdemo.base.BaseActivity
 import me.xyxaini.jetdemo.fragment.MainFragment
