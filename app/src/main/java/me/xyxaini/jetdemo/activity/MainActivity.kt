@@ -1,8 +1,10 @@
 package me.xyxaini.jetdemo.activity
 
+import kotlinx.android.synthetic.main.activity_main.*
 import me.xyxaini.jetdemo.R
 import me.xyxaini.jetdemo.base.BaseActivity
-import me.xyxaini.jetdemo.fragment.MainFragment
+import me.xyxaini.jetdemo.fragment.`fun`.MainFragment
+import me.xyxaini.jetdemo.fragment.search.SearchFragment
 
 
 /**
@@ -12,7 +14,11 @@ import me.xyxaini.jetdemo.fragment.MainFragment
 class MainActivity : BaseActivity() {
 
     override fun initView() {
-        replaceFragment(R.id.root_view, MainFragment(), "main")
+        val pagerAdapter = RootPagerAdapter(supportFragmentManager)
+        root_pager.adapter = pagerAdapter
+        pagerAdapter.addPage(MainFragment())
+        pagerAdapter.addPage(SearchFragment())
+//        replaceFragment(R.id.root_view, MainFragment(), "main")
     }
 
     override fun initAction() {

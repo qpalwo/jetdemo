@@ -1,4 +1,4 @@
-package me.xyxaini.jetdemo.fragment
+package me.xyxaini.jetdemo.fragment.`fun`
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations.map
@@ -14,12 +14,15 @@ import me.xyxaini.jetdemo.model.repo.IDemoRepo
  */
 class MainViewModel(private val funRepo: IDemoRepo<FunData<FunEntity>>) : ViewModel() {
     val pageNum = MutableLiveData<Int>()
+
     val funList = map(pageNum) {
-        funRepo.getPagedList(it)
+        funRepo.getPagedList(it.toString())
     }
+
     val funDataSet = switchMap(funList) {
         it.funDataSet
     }
+
     val resState = switchMap(funList) {
         it.resState
     }

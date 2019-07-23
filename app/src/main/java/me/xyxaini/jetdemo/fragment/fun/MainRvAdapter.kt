@@ -1,4 +1,4 @@
-package me.xyxaini.jetdemo.fragment
+package me.xyxaini.jetdemo.fragment.`fun`
 
 import android.view.LayoutInflater
 import android.view.View
@@ -65,9 +65,15 @@ class MainRvAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
-            R.layout.item_fun -> FunViewHolder.create(parent)
-            R.layout.item_retry -> FunRetryViewHolder.create(parent)
-            else -> FunRetryViewHolder.create(parent)
+            R.layout.item_fun -> FunViewHolder.create(
+                parent
+            )
+            R.layout.item_retry -> FunRetryViewHolder.create(
+                parent
+            )
+            else -> FunRetryViewHolder.create(
+                parent
+            )
         }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

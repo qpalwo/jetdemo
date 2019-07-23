@@ -1,19 +1,18 @@
-package me.xyxaini.jetdemo.fragment
+package me.xyxaini.jetdemo.fragment.`fun`
 
 import android.content.Context
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
 import kotlinx.android.synthetic.main.fragment_main.*
 import me.xyxaini.jetdemo.R
 import me.xyxaini.jetdemo.base.BaseFragment
 import me.xyxaini.jetdemo.model.IRepoHolder
 import me.xyxaini.jetdemo.model.bean.FunData
 import me.xyxaini.jetdemo.model.bean.FunEntity
-import me.xyxaini.jetdemo.model.repo.FunRepo
 import me.xyxaini.jetdemo.model.repo.IDemoRepo
-import me.xyxaini.jetdemo.model.service.local.FunDb
 
 /**
  * @author  : Xiao Yuxuan
@@ -34,15 +33,10 @@ class MainFragment : BaseFragment() {
             adapter.setResState(it)
         })
         rv_main.adapter = adapter
+        rv_main.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     override fun initAction() {
-        confirm_button.setOnClickListener {
-            if (model.updatePageNum(page_num.text.toString())) {
-                rv_main.scrollToPosition(0)
-                (rv_main.adapter as? MainRvAdapter)?.submitList(null)
-            }
-        }
         model.updatePageNum(1)
     }
 
@@ -51,7 +45,8 @@ class MainFragment : BaseFragment() {
     private fun getViewModel(context: Context): MainViewModel {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                val repo = IRepoHolder.instance(activity!!.application).getRepo<FunData<FunEntity>>(IDemoRepo.Type.FUN)
+                val repo = IRepoHolder.instance(activity!!.application)
+                    .getRepo<FunData<FunEntity>>(IDemoRepo.Type.FUN)
                 return MainViewModel(repo) as T
             }
         })[MainViewModel::class.java]

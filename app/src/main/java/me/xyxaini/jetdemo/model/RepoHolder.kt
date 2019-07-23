@@ -2,9 +2,11 @@ package me.xyxaini.jetdemo.model
 
 import android.app.Application
 import me.xyxaini.jetdemo.model.repo.FunRepo
+import me.xyxaini.jetdemo.model.repo.GitHubRepoRepo
 import me.xyxaini.jetdemo.model.repo.IDemoRepo
-import me.xyxaini.jetdemo.model.service.local.FunDb
+import me.xyxaini.jetdemo.model.service.local.DemoDb
 import me.xyxaini.jetdemo.model.service.remote.FunApi
+import me.xyxaini.jetdemo.model.service.remote.GitHubApi
 
 /**
  * @author  : Xiao Yuxuan
@@ -32,14 +34,21 @@ class RepoHolder(val app: Application) : IRepoHolder {
             IDemoRepo.Type.FUN -> {
                 return FunRepo(db, funAPi) as IDemoRepo<T>
             }
+            IDemoRepo.Type.HUB_REPO -> {
+                return GitHubRepoRepo(db, gitHubApi) as IDemoRepo<T>
+            }
         }
     }
 
     private val db by lazy {
-        FunDb.create(app)
+        DemoDb.create(app)
     }
 
     private val funAPi by lazy {
         FunApi.create()
+    }
+
+    private val gitHubApi by lazy {
+        GitHubApi.create()
     }
 }

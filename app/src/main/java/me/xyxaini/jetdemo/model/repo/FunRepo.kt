@@ -1,14 +1,12 @@
 package me.xyxaini.jetdemo.model.repo
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.PagedList
 import androidx.paging.toLiveData
 import me.xyxaini.jetdemo.model.Resource
 import me.xyxaini.jetdemo.model.Status
 import me.xyxaini.jetdemo.model.bean.FunData
 import me.xyxaini.jetdemo.model.bean.FunEntity
-import me.xyxaini.jetdemo.model.service.local.FunDb
+import me.xyxaini.jetdemo.model.service.local.DemoDb
 import me.xyxaini.jetdemo.model.service.remote.Data
 import me.xyxaini.jetdemo.model.service.remote.FunApi
 
@@ -17,7 +15,7 @@ import me.xyxaini.jetdemo.model.service.remote.FunApi
  * @date    :  2019-07-19
  */
 class FunRepo(
-    private val db: FunDb,
+    private val db: DemoDb,
     private val funApi: FunApi
 ) : IDemoRepo<FunData<FunEntity>> {
 
@@ -46,7 +44,7 @@ class FunRepo(
     }
 
 
-    override fun getPagedList(page: Int): FunData<FunEntity> {
+    override fun getPagedList(content: String): FunData<FunEntity> {
         val callback = FunBoundaryCallback(this::insertIntoDb, funApi)
         val funDataSet = db.funApi().funByPage().toLiveData(
             pageSize = defaultPageSize,

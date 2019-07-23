@@ -5,21 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/page_num"
+            android:id="@+id/et_search"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:inputType="numberDecimal" />
+            android:layout_weight="2" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/confirm_button"
+            android:id="@+id/search_button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -28,10 +26,9 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_main"
+        android:id="@+id/rv_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
 
 </LinearLayout>

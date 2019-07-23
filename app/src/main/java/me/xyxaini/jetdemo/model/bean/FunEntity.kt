@@ -12,4 +12,5 @@ data class FunEntity(
     val page: Int,
     @PrimaryKey
     val content: String,
-    val createdTime: String)
+    val createdTime: String
+)
